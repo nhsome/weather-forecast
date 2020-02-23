@@ -4,6 +4,7 @@ import WeatherCard from './WeatherCard'
 import { makeStyles } from '@material-ui/core/styles'
 import fetchWeather from '../helpers/fetchWeather'
 import { toast } from 'react-toastify'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   weather: {
@@ -21,21 +22,32 @@ export default function Weather() {
 
   useEffect(() => {
     fetchWeather(setProgress, setWeather)
+      .then(weather => {
+        setWeather(weather)
+      })
       .catch(err => {
         toast.error(err.message)
       })
+      .finally(() => {
+        setProgress(false)
+      })
   }, [])
-
-  const renderWeather = (weather) => {
-    return weather.map(weatherItem => <WeatherCard weatherItem={ weatherItem } key={ weatherItem.id } />)
-  }
 
   return (
     <div className={ classes.weather }>
       {
         isProgress
           ? (<CircularProgress />)
-          : renderWeather(weather.consolidated_weather)
+          : <>
+            <Typography className={ classes.header } gutterBottom variant="h4" component="h1">
+              { weather.title }
+            </Typography>
+            {
+              weather.consolidated_weather.map(
+                weatherItem => <WeatherCard weatherItem={ weatherItem } key={ weatherItem.id } />
+              )
+            }
+          </>
       }
     </div>
   )

@@ -25,14 +25,6 @@ class IpDataProvider {
       json: true
     })
   }
-
-  _checkError(response) {
-    if (response.error) {
-      throw new Error(response.error)
-    } else {
-      return response
-    }
-  }
 }
 
 module.exports = IpDataProvider

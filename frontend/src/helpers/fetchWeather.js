@@ -1,38 +1,18 @@
 import getGeoLocation from './getGeoLocation'
 import { userLocation, weatherForecast } from '../api'
 
-export default async function fetchWeather(setProgress, setWeather) {
-  setProgress(true)
-
+export default async function fetchWeather() {
   // Get geo location from browser API, ignore errors
-  let geoPosition
-  try {
-    geoPosition = await getGeoLocation()
-  } catch(err) {
-    console.warn(err)
-  }
+  let geoPosition = await getGeoLocation()
 
   // Find user's location in server (by browser geo location or by ip)
-  let location
-  try {
-    location = await userLocation.getData({
-      latitude: geoPosition && geoPosition.coords.latitude,
-      longitude: geoPosition && geoPosition.coords.longitude
-    })
-  } catch(err) {
-    setProgress(false)
-    throw err
-  }
+  let location = await userLocation.getData({
+    latitude: geoPosition && geoPosition.coords.latitude,
+    longitude: geoPosition && geoPosition.coords.longitude
+  })
 
   // Get weather from server
-  try {
-    const weather = await weatherForecast.getData({
-      woeid: location.woeid
-    })
-    setWeather(weather)
-    setProgress(false)
-  } catch(err) {
-    setProgress(false)
-    throw err
-  }
+  return weatherForecast.getData({
+    woeid: location.woeid
+  })
 }

@@ -4,12 +4,12 @@ import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import Weather from '../components/Weather'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   container: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 'calc(100vh - 180px)',
+    minHeight: 'calc(100vh - 180px)'
   }
 }))
 
