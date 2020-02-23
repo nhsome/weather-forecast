@@ -1,4 +1,6 @@
-##weather-forecast
+# Weather forecast
+
+## Backend
 
 **Requirements:**
 
@@ -15,7 +17,22 @@
 	 
 	 $ npm run dev
 
-**Start:** 
+**Start in production mode:** 
 	 
 	 $ npm run start
 
+## Frontend
+
+**Requirements:**
+
+1. node.js v12.16.1
+2. npm v6.13.4
+
+
+**Run in dev mode:** 
+	 
+	 $ npm start
+
+**Build for production:** 
+	 
+	 $ npm run build
