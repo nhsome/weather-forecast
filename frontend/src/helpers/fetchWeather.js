@@ -3,10 +3,10 @@ import { userLocation, weatherForecast } from '../api'
 
 export default async function fetchWeather() {
   // Get geo location from browser API, ignore errors
-  let geoPosition = await getGeoLocation()
+  const geoPosition = await getGeoLocation()
 
   // Find user's location in server (by browser geo location or by ip)
-  let location = await userLocation.getData({
+  const location = await userLocation.getData({
     latitude: geoPosition && geoPosition.coords.latitude,
     longitude: geoPosition && geoPosition.coords.longitude
   })
