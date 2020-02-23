@@ -9,7 +9,8 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 'calc(100vh - 180px)'
+    minHeight: 'calc(100vh - 180px)',
+    padding: '0'
   }
 }))
 

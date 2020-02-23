@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   weather: {
-    padding: theme.spacing(3),
+    padding: `${ theme.spacing(3) }px 0`,
     textAlign: 'center'
   }
 }))
