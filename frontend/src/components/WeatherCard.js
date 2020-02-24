@@ -72,16 +72,16 @@ export default function WeatherCard({ weatherItem }) {
           { weatherStatesTitles[weatherItem.weather_state_abbr] || weatherItem.weather_state_name }
         </Typography>
         <Typography className={ classes.temperature }>
-          <span className={ classes.theTemp }>Температура: { parseInt(weatherItem.the_temp) }°C</span>
-          <span>Мин. температура: { parseInt(weatherItem.min_temp) }°C</span>
-          <span>Макс. температура: { parseInt(weatherItem.max_temp) }°C</span>
+          <span className={ classes.theTemp }>Температура: { Math.round(weatherItem.the_temp) }°C</span>
+          <span>Мин. температура: { Math.round(weatherItem.min_temp) }°C</span>
+          <span>Макс. температура: { Math.round(weatherItem.max_temp) }°C</span>
         </Typography>
         <Typography>
           <img className={ classes.windDirection }
                src={ `${ weatherIconBase }/windarrow.svg` }
                alt="Wind arrow"
                title={ weatherItem.wind_direction_compass } />
-          { parseInt(mphToMs(weatherItem.wind_speed)) } м/c
+          { Math.round(mphToMs(weatherItem.wind_speed)) } м/c
         </Typography>
       </CardContent>
     </Card>
