@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    padding: theme.spacing(2)
   }
 }))
 
@@ -16,10 +16,10 @@ export default function Footer() {
   return (
     <footer className={ classes.footer }>
       <Typography variant="body2" color="textSecondary" align="center">
-        { 'Copyright © ' }
+        { 'Copyright © Alex\xa0Shor\xa0(nhsome)\xa0— ' }
         <Link color="inherit" href="https://github.com/nhsome/weather-forecast">
-          Alex Shor (nhsome) — Прогноз погоды
-        </Link>{ ' ' }
+          Прогноз&nbsp;погоды
+        </Link>{ '\xa0' }
         { new Date().getFullYear() }
       </Typography>
     </footer>
