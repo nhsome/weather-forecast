@@ -3,7 +3,8 @@
 const request = require('request-promise-native')
 
 class WeatherForecastProvider {
-  constructor() {} // in the future may needs credentials for api access
+  constructor() {
+  } // in the future may needs credentials for api access
 
   static get API_BASE() {
     return 'https://www.metaweather.com/api'
@@ -17,7 +18,7 @@ class WeatherForecastProvider {
     return request({
       uri: WeatherForecastProvider.API_BASE + WeatherForecastProvider.SEARCH_LOCATION_URI,
       qs: {
-        lattlong: `${locationCoords.latitude},${locationCoords.longitude}`
+        lattlong: `${ locationCoords.latitude },${ locationCoords.longitude }`
       },
       json: true
     })
@@ -25,7 +26,7 @@ class WeatherForecastProvider {
 
   getWeatherForecast(woeid) {
     return request({
-      uri: WeatherForecastProvider.API_BASE + `/location/${woeid}/`,
+      uri: WeatherForecastProvider.API_BASE + `/location/${ woeid }/`,
       json: true
     })
   }

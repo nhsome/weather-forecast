@@ -16,7 +16,7 @@ class UserLocation extends Controller {
 
   async _getLocationCoords(req) {
     if (req.query.latitude && req.query.longitude) {
-      return _.pick(req.query, ['latitude', 'longitude'])
+      return _.pick(req.query, [ 'latitude', 'longitude' ])
     }
 
     // Not found input coordinates, let's find it by IP
@@ -24,7 +24,7 @@ class UserLocation extends Controller {
     if (!ipData.latitude || !ipData.longitude) {
       throw new HttpError(500, 'Something went wrong while get ip data')
     }
-    return _.pick(ipData, ['latitude', 'longitude'])
+    return _.pick(ipData, [ 'latitude', 'longitude' ])
   }
 }
 

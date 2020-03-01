@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import CloudCircleIcon from '@material-ui/icons/CloudCircle'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'

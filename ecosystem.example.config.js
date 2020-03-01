@@ -12,7 +12,7 @@ module.exports = {
       name: 'weather-forecast',
       script: 'index.js',
       watch: true,
-      ignore_watch: [ "node_modules", "app/static", "frontend/*", ".git" ],
+      ignore_watch: [ 'node_modules', 'app/static', 'frontend/*', '.git' ],
       // node_args: [ '--inspect' ],
       env_development
     }
